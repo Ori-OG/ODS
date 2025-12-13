@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Site Live Test</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OD | Studio – Planning and Design Solutions</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Additional CSS if needed -->
+    <link rel="stylesheet" href="assets/css/additional.css">
 </head>
-<body style="font-family: system-ui, sans-serif; padding: 4rem;">
+<body>
+    <!-- Header -->
+    <header id="site-header">
+        <!-- Using fetch to inject header.html -->
+        <script>
+            fetch('components/header.html')
+                .then(response => response.text())
+                .then(html => { document.getElementById('site-header').innerHTML = html; });
+        </script>
+    </header>
 
-  <h1>It works.</h1>
+    <!-- Main Sections -->
+    <main id="site-sections">
+        <script>
+            fetch('components/sections.html')
+                .then(response => response.text())
+                .then(html => { document.getElementById('site-sections').innerHTML = html; });
+        </script>
+    </main>
 
-  <p>
-    This page is served from GitHub Pages.
-  </p>
+    <!-- Footer -->
+    <footer id="site-footer">
+        <script>
+            fetch('components/footer.html')
+                .then(response => response.text())
+                .then(html => { document.getElementById('site-footer').innerHTML = html; });
+        </script>
+    </footer>
 
-  <p>
-    If you can read this, the deployment pipeline is functioning.
-  </p>
-
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
