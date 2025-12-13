@@ -4,43 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OD | Studio – Planning and Design Solutions</title>
-
-    <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Additional CSS if needed -->
-    <link rel="stylesheet" href="assets/css/additional.css">
 </head>
 <body>
-    <!-- Header -->
+
     <header id="site-header">
-        <!-- Using fetch to inject header.html -->
-        <script>
-            fetch('components/header.html')
-                .then(response => response.text())
-                .then(html => { document.getElementById('site-header').innerHTML = html; });
-        </script>
+        <pre>
+&lt;!-- DROP HEADER CONTENT HERE --&gt;
+&lt;!-- Example: --&gt;
+&lt;h1&gt;OD | Studio&lt;/h1&gt;
+&lt;nav&gt; ... &lt;/nav&gt;
+        </pre>
     </header>
 
-    <!-- Main Sections -->
     <main id="site-sections">
-        <script>
-            fetch('components/sections.html')
-                .then(response => response.text())
-                .then(html => { document.getElementById('site-sections').innerHTML = html; });
-        </script>
+        <pre>
+&lt;!-- DROP MAIN SECTION CONTENT HERE --&gt;
+&lt;!-- Example: --&gt;
+&lt;section id="about"&gt;About content&lt;/section&gt;
+&lt;section id="contact"&gt;Contact content&lt;/section&gt;
+        </pre>
     </main>
 
-    <!-- Footer -->
     <footer id="site-footer">
-        <script>
-            fetch('components/footer.html')
-                .then(response => response.text())
-                .then(html => { document.getElementById('site-footer').innerHTML = html; });
-        </script>
+        <pre>
+&lt;!-- DROP FOOTER CONTENT HERE --&gt;
+&lt;!-- Example: --&gt;
+&lt;p&gt;&amp;copy; 2025 OD | Studio&lt;/p&gt;
+        </pre>
     </footer>
 
-    <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
