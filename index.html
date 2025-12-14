@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OD | Studio – Planning and Design Solutions</title>
 
   <!-- Bootstrap CSS -->
@@ -11,8 +10,8 @@
 
   <!-- Your CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/additional.css">
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -36,14 +35,10 @@
         .catch(err => console.error(`Error loading ${file}`, err));
     }
 
-    // Load modular components
     loadComponent("site-header", "components/header.html");
     loadComponent("site-sections", "components/sections.html");
     loadComponent("site-footer", "components/footer.html");
   </script>
-
-  <!-- Your JS -->
-  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
