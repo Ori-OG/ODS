@@ -26,17 +26,6 @@
 }
 
 
-/* Header */
-#site-header {
-  height: 10vh; /* 10% of viewport height */
-  display: flex;
-  align-items: center;
-  padding: 0 2rem; /* optional padding */
-  background-color: #fff; /* or your color */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
 /* Footer */
 #site-footer {
   height: 10vh;
@@ -48,4 +37,12 @@
   font-size: 0.9rem;
   color: #333;
   flex-wrap: wrap;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
 }
