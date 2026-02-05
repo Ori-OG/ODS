@@ -1,44 +1,38 @@
-<header class="bg-light py-3 sticky-top">
-  <div class="container d-flex justify-content-start align-items-center flex-wrap">
-    <!-- Logo / Site Name -->
-    <a href="#" class="navbar-brand me-4">OD | Studio</a>
-
-    <!-- Desktop Navigation -->
-    <div class="container d-flex justify-content-start align-items-center flex-wrap">
-  <a href="#" class="navbar-brand me-4">OD | Studio</a>
-
-  <nav class="d-none d-md-flex gap-3 ms-auto">
-    <a href="#" class="nav-link px-2">About</a>
-    <a href="#" class="nav-link px-2">Services</a>
-    <a href="#" class="nav-link px-2">Gallery</a>
-    <a href="#" class="nav-link px-2">Contact</a>
-  </nav>
-
-  <div class="d-md-none ms-auto">
-    …
-  </div>
-</div>
-
-
-    <!-- Mobile Navigation Toggle -->
-    <div class="d-md-none ms-auto">
-      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-        ☰
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg bg-light py-3">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">OD | Studio</a>
+  
+      <!-- Mobile Toggle -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-    </div>
-  </div>
 
-  <!-- Mobile Offcanvas Menu -->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title">OD | Studio</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    <!-- Collapsible Navigation -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="offcanvas-body d-flex flex-column gap-3">
-      <a href="#" class="nav-link">About</a>
-      <a href="#" class="nav-link">Services</a>
-      <a href="#" class="nav-link">Gallery</a>
-      <a href="#" class="nav-link">Contact</a>
-    </div>
-  </div>
+  </nav>
 </header>
