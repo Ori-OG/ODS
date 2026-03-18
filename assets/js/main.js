@@ -13,93 +13,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ------------------------
-  // SPA NAVIGATION LOGIC
-  // ------------------------
-  const mainContainer = document.getElementById('site-sections');
+// ------------------------
+// SPA NAVIGATION LOGIC
+// ------------------------
+const mainContainer = document.getElementById('site-sections');
+
+// Load component directly by file name
+function loadComponent(file) {
+  if (!file) return;
+
+  console.log("LOADING:", file); // debug
+
+  fetch(`components/${file}`)
+    .then(res => {
+      if (!res.ok) throw new Error("Component not found");
+      return res.text();
+    })
+    .then(html => {
+      mainContainer.innerHTML = html;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      initGalleryScroll();
+    })
+    .catch(err => {
+      console.error(`Failed to load ${file}: ${err.message}`);
+    });
+}
+
+// ------------------------
+// INIT NAV (RUN AFTER HEADER LOADS)
+// ------------------------
+window.initNav = function () {
+
+  console.log("INIT NAV RUNNING"); // debug
+
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('navMenu');
   const headerLogo = document.querySelector('.navbar-item.logo');
-  const navLinks = document.querySelectorAll('.navbar-item:not(.logo)');
 
-  // Mapping nav items to numbered component files
-  const componentMap = {
-    "Landing": "1_landing.html",
-    "About": "2_about.html",
-    "Services": "3_services.html",
-    "Gallery": "4_gallery.html",
-    "Contact": "5_contact.html"
-  };
+  // 👇 KEY CHANGE: use data-file
+  const navLinks = document.querySelectorAll('.navbar-item[data-file]');
 
-  // Utility: Load component file into main container
-  function loadComponent(name) {
-    const file = componentMap[name];
-    if (!file) return;
+  console.log("FOUND LINKS:", navLinks); // debug
 
-    fetch(`components/${file}`)
-      .then(res => {
-        if (!res.ok) throw new Error("Component not found");
-        return res.text();
-      })
-      .then(html => {
-        mainContainer.innerHTML = html;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        initGalleryScroll(); // re-init gallery controls if present
-      })
-      .catch(err => {
-        console.error(`Failed to load ${file}: ${err.message}`);
-        mainContainer.innerHTML = `<section class="section"><div class="container"><p>Content unavailable.</p></div></section>`;
-      });
+  // Burger toggle
+  if (burger && menu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    });
   }
-  // ------------------------
-  // INIT NAV (RUN AFTER HEADER LOADS)
-  // ------------------------
-  window.initNav = function () {
 
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('navMenu');
-    const headerLogo = document.querySelector('.navbar-item.logo');
-    const navLinks = document.querySelectorAll('.navbar-item[data-page]');
+  // Logo → landing
+  if (headerLogo) {
+    headerLogo.addEventListener('click', (e) => {
+      e.preventDefault();
+      loadComponent("1_landing.html");
+    });
+  }
 
-    // Burger toggle
-    if (burger && menu) {
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('is-active');
-        menu.classList.toggle('is-active');
-      });
-    }
-    
-    // Debugger
-    navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
+  // Nav links
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
 
-    console.log("CLICKED:", link);          // 👈 add this
-    console.log("PAGE:", link.dataset.page); // 👈 and this
+      const file = link.dataset.file;
 
-    const page = link.dataset.page;
-    loadComponent(page);
+      console.log("CLICKED:", file); // debug
+
+      loadComponent(file);
     });
   });
-
-  // ------------------------
-  // NAVIGATION EVENTS
-  // ------------------------
-  // Logo click → Landing
-    if (headerLogo) {
-      headerLogo.addEventListener('click', (e) => {
-        e.preventDefault();
-        loadComponent("Landing");
-      });
-    }
-
-    // Nav links
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const page = link.dataset.page;
-        loadComponent(page);
-      });
-    });
-  };
+};
 
 
   // ------------------------
