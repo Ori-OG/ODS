@@ -49,24 +49,45 @@ document.addEventListener('DOMContentLoaded', () => {
         mainContainer.innerHTML = `<section class="section"><div class="container"><p>Content unavailable.</p></div></section>`;
       });
   }
+  // ------------------------
+  // INIT NAV (RUN AFTER HEADER LOADS)
+  // ------------------------
+  window.initNav = function () {
 
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('navMenu');
+    const headerLogo = document.querySelector('.navbar-item.logo');
+    const navLinks = document.querySelectorAll('.navbar-item[data-page]');
+
+    // Burger toggle
+    if (burger && menu) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+      });
+    }
+    
   // ------------------------
   // NAVIGATION EVENTS
   // ------------------------
-  if (headerLogo) {
-    headerLogo.addEventListener('click', (e) => {
-      e.preventDefault();
-      loadComponent("Landing");
-    });
-  }
+  // Logo click → Landing
+    if (headerLogo) {
+      headerLogo.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadComponent("Landing");
+      });
+    }
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const page = link.innerText.trim();
-      loadComponent(page);
+    // Nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.dataset.page;
+        loadComponent(page);
+      });
     });
-  });
+  };
+
 
   // ------------------------
   // GALLERY HORIZONTAL SCROLL

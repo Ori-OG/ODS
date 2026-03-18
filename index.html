@@ -28,12 +28,17 @@
     function loadComponent(id, file) {
       fetch(file)
         .then(res => res.text())
-        .then(html => document.getElementById(id).innerHTML = html)
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+          if (callback) callback(); // 🔑 critical
+        })
         .catch(err => console.error(`Error loading ${file}`, err));
     }
 
     // Load initial components
-    loadComponent("site-header", "components/header.html");
+    loadComponent("site-header", "components/header.html", () => {
+      if (window.initNav) window.initNav();
+    });
     loadComponent("site-sections", "components/1_landing.html"); // Landing page first
     loadComponent("site-footer", "components/footer.html");
   </script>
