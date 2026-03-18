@@ -67,6 +67,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
     
+    // Debugger
+    navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    console.log("CLICKED:", link);          // 👈 add this
+    console.log("PAGE:", link.dataset.page); // 👈 and this
+
+    const page = link.dataset.page;
+    loadComponent(page);
+    });
+  });
+
   // ------------------------
   // NAVIGATION EVENTS
   // ------------------------
