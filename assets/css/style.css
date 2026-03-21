@@ -1,6 +1,7 @@
 /* ------------------------
    GLOBAL SETTINGS
 ------------------------ */
+
 :root {
   --primary-color: #000;
   --secondary-color: #767676;
@@ -25,28 +26,37 @@ h1, h2, h3, h4 {
 }
 
 /* ------------------------
-   NAVBAR (Bulma override)
+   Header
 ------------------------ */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
 }
-
-/* Optional logo styling */
-.navbar .navbar-item.logo {
+/* Logo Parent */
+.navbar-item.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* Child image */
+.navbar-item.logo .logo-mark {
+  height: 40px;
+  width: auto;
+}
+/* Child text */
+.navbar-item.logo .logo-text {
   font-family: var(--font-heading);
   font-size: 1.5rem;
 }
 
 /* ------------------------
-   SECTIONS
+   HERO IMAGE
 ------------------------ */
-.section {
-  padding: 3rem 2rem;
+.hero {
+  background-image: url('/assets/img/Hero-Image.jpg');
+  background-size: cover;        /* fills screen */
+  background-position: center;   /* keeps image centered */
+  background-repeat: no-repeat;
 }
 
 /* ------------------------
@@ -131,7 +141,6 @@ h1, h2, h3, h4 {
 .footer {
   background-color: #222;
   color: #fff;
-  padding: 3rem 2rem;
 }
 
 .footer a {
@@ -148,17 +157,4 @@ h1, h2, h3, h4 {
 .footer-bottom {
   margin-top: 2rem;
   font-size: 0.875rem;
-}
-
-/* ------------------------
-   RESPONSIVE TWEAKS
------------------------- */
-@media (max-width: 768px) {
-  .section {
-    padding: 2rem 1rem;
-  }
-
-  .gallery-item {
-    flex: 0 0 220px;
-  }
 }
