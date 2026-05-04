@@ -1,100 +1,55 @@
 /* ------------------------
-   GLOBAL SETTINGS
+   ROOT (keep minimal)
 ------------------------ */
-
 :root {
-  --primary-color: #000;
-  --secondary-color: #767676;
-  --accent-color: #0693e3;
-  --bg-color: #f5f5f5;
+  --text-color: #000;
+  --bg-light: #f5f5f5;
+  --bg-dark: #e5e5e5;
 
   --font-body: 'Open Sans', sans-serif;
-  --font-heading: 'DM Serif Display', serif;
-
-  --spacing: 1rem;
+  --font-heading: 'Open Sans', sans-serif;
 }
 
-html, body {
+/* ------------------------
+   GLOBAL
+------------------------ */
+body {
   font-family: var(--font-body);
-  background-color: var(--bg-color);
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
-/* Headings override Bulma defaults */
-h1, h2, h3, h4 {
+/* Headings */
+h1, h2, h3 {
   font-family: var(--font-heading);
 }
 
 /* ------------------------
-   Header
+   HERO IMAGE (ONLY landing)
 ------------------------ */
-.navbar {
-  background-color: #fff;
-  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-}
-/* Logo Parent */
-.navbar-item.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-/* Child image */
-.navbar-item.logo .logo-mark {
-  height: 40px;
-  width: auto;
-}
-/* Child text */
-.navbar-item.logo .logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-}
-
-/* ------------------------
-   HERO IMAGE
------------------------- */
-.hero {
+.hero-landing {
   background-image: url('/assets/img/Hero-Image.jpg');
-  background-size: cover;        /* fills screen */
-  background-position: center;   /* keeps image centered */
-  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /* ------------------------
-   SERVICES (Custom need)
+   SERVICE 2 IMAGE FIX (important)
 ------------------------ */
-.service-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.service-img img {
+/* fix for service two abnormal size applied to all images */
+.image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-}
-
-/* Optional: center service blocks */
-.service-card {
-  text-align: center;
 }
 
 /* ------------------------
-   GALLERY (Custom component)
+   GALLERY (only real custom piece)
 ------------------------ */
-.gallery-wrapper {
-  position: relative;
-}
-
 .gallery-track {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   overflow-x: auto;
   scroll-behavior: smooth;
-
-  scrollbar-width: none;
 }
 
 .gallery-track::-webkit-scrollbar {
@@ -103,58 +58,25 @@ h1, h2, h3, h4 {
 
 .gallery-item {
   flex: 0 0 280px;
-  aspect-ratio: 1;
 }
 
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Navigation buttons */
 .gallery-nav {
   background: none;
   border: none;
-  font-size: 2.5rem;
+  font-size: 2rem;
   cursor: pointer;
-  color: var(--primary-color);
 }
 
-/* ------------------------
-   BUTTON OVERRIDES
------------------------- */
-.button.is-pill {
-  border-radius: 999px;
-}
-
-/* Optional accent button */
-.button.is-accent {
-  background-color: var(--accent-color);
-  color: #fff;
-  border: none;
-}
-
-/* ------------------------
-   FOOTER (Bulma-based)
------------------------- */
 .footer {
-  background-color: #222;
-  color: #fff;
+  padding: 0.5rem 1rem; /* reduce drastically */
+  min-height: 5vh;      /* use min-height, not height */
 }
 
-.footer a {
-  color: var(--accent-color);
+.footer p {
+  margin: 0;
+  line-height: 1.2;
 }
 
-/* Form tweaks inside footer */
-.footer input,
-.footer textarea {
-  border-radius: 4px;
-}
-
-/* Bottom row */
-.footer-bottom {
-  margin-top: 2rem;
-  font-size: 0.875rem;
+.footer small {
+  font-size: 0.75rem;
 }
